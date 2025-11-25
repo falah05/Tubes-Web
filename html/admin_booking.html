@@ -23,24 +23,24 @@
                 </button>
             </div>
 
-            <nav class="sidebar-nav">
-                <button class="nav-item active" onclick="setActive(this, 'dashboard')">
-                    <i class="fas fa-home"></i>
-               <a href="admin.html"><span>Dashboard</span></a>
-                </button>
-                <button class="nav-item" onclick="setActive(this, 'bookings')">
-                    <i class="fas fa-calendar"></i>
-                 <a href="admin_booking.html"><span>Booking</span></a>
-                </button>
-                <button class="nav-item" onclick="setActive(this, 'photographers')">
-                    <i class="fas fa-camera"></i>
-                <a href="admin_potography.html"><span>Photography</span></a>
-                </button>
-                <button class="nav-item" onclick="setActive(this, 'reports')">
-                    <i class="fas fa-file-alt"></i>
-                <a href="admin_reports.html"><span>Reports</span></a>
-                </button>
-            </nav>
+          <nav class="sidebar-nav">
+    <a href="admin.html" class="nav-item" onclick="setActive(this, 'dashboard')">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+    </a>
+    <a href="admin_booking.html" class="nav-item active" onclick="setActive(this, 'bookings')">
+        <i class="fas fa-calendar"></i>
+        <span>Booking</span>
+    </a>
+    <a href="admin_potography.html" class="nav-item" onclick="setActive(this, 'photographers')">
+        <i class="fas fa-camera"></i>
+        <span>Photography</span>
+    </a>
+    <a href="admin_reports.html" class="nav-item" onclick="setActive(this, 'reports')">
+        <i class="fas fa-file-alt"></i>
+        <span>Reports</span>
+    </a>
+</nav>
 
             <div class="sidebar-footer">
                 <button class="logout-btn" onclick="logout()">
@@ -177,4 +177,5 @@
 </body>
 
 </html>
+
 
