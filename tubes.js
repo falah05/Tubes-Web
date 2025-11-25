@@ -93,7 +93,7 @@ function logout() {
     if (confirm('Are you sure you want to logout?')) {
         // Add logout logic here
         alert('Logging out...');
-        // window.location.href = '/login';
+        window.location.href = "login.html";
     }
 }
 
@@ -250,3 +250,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
