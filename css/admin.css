@@ -85,7 +85,8 @@ body {
     overflow-y: auto;
 }
 
-.nav-item {
+.nav-item,
+a.nav-item {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -104,13 +105,16 @@ body {
     font-weight: 500;
 }
 
-.nav-item:hover {
-    background: #f3e7f8;
+.nav-item:hover,
+a.nav-item:hover {
+    background: #f3e7f8 !important;
+    color: #4b5563 !important;
 }
 
-.nav-item.active {
-    background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-    color: white;
+.nav-item.active,
+a.nav-item.active {
+    background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%) !important;
+    color: white !important;
     box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
 }
 
@@ -1385,4 +1389,5 @@ tbody tr:hover {
     .chart-card.large {
         grid-column: 1;
     }
+
 }
