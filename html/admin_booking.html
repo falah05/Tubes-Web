@@ -105,12 +105,12 @@
 <!-- Filter Section -->
                 <div class="filter-section">
                     <div class="filter-tabs">
-                        <button class="filter-tab active" onclick="filterStatus('all')">All Bookings</button>
-                        <button class="filter-tab" onclick="filterStatus('pending')">Pending</button>
-                        <button class="filter-tab" onclick="filterStatus('confirmed')">Confirmed</button>
-                        <button class="filter-tab" onclick="filterStatus('in-progress')">In Progress</button>
-                        <button class="filter-tab" onclick="filterStatus('completed')">Completed</button>
-                        <button class="filter-tab" onclick="filterStatus('cancelled')">Cancelled</button>
+           <button class="filter-tab active" onclick="filterStatus(event, 'all')">All Bookings</button>
+<button class="filter-tab" onclick="filterStatus(event, 'pending')">Pending</button>
+<button class="filter-tab" onclick="filterStatus(event, 'confirmed')">Confirmed</button>
+<button class="filter-tab" onclick="filterStatus(event, 'in-progress')">In Progress</button>
+<button class="filter-tab" onclick="filterStatus(event, 'completed')">Completed</button>
+<button class="filter-tab" onclick="filterStatus(event, 'cancelled')">Cancelled</button>
                     </div>
                 <!-- Table Section -->
                 <div class="table-section">
@@ -177,6 +177,7 @@
 </body>
 
 </html>
+
 
 
 
