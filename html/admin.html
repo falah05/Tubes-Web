@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Find Happiness</title>
-  <link rel="stylesheet" href="../css/style1.css">
+  <link rel="stylesheet" href="css/admin.css">
 </head>
 <body> 
 <div class="dashboard-container">
@@ -13,7 +13,7 @@
     <div class="sidebar-header">
         <div class="logo-container">
         <div class="logo-icon">
-        <img src="../img/logo.png" alt="Logo" class="logo-icon">
+        <img src="img/logo.png" alt="Logo" class="logo-icon">
         <i class="fas fa-camera"></i>
                     </div>
                     <span class="logo-text">Find Hapiness</span>
@@ -23,34 +23,22 @@
                 </button>
             </div>
 
-            <nav class="sidebar-nav">
+           <nav class="sidebar-nav">
                 <button class="nav-item active" onclick="setActive(this, 'dashboard')">
                     <i class="fas fa-home"></i>
-                    <span>Dashboard</span>
+               <a href="admin.html"><span>Dashboard</span></a>
                 </button>
                 <button class="nav-item" onclick="setActive(this, 'bookings')">
                     <i class="fas fa-calendar"></i>
-                    <span>Bookings</span>
+                 <a href="admin_booking.html"><span>Booking</span></a>
                 </button>
                 <button class="nav-item" onclick="setActive(this, 'photographers')">
                     <i class="fas fa-camera"></i>
-                    <span>Photographers</span>
-                </button>
-                <button class="nav-item" onclick="setActive(this, 'clients')">
-                    <i class="fas fa-users"></i>
-                    <span>Clients</span>
-                </button>
-                <button class="nav-item" onclick="setActive(this, 'portfolio')">
-                    <i class="fas fa-image"></i>
-                    <span>Portfolio</span>
+                <a href="admin_potography.html"><span>Photography</span></a>
                 </button>
                 <button class="nav-item" onclick="setActive(this, 'reports')">
                     <i class="fas fa-file-alt"></i>
                     <span>Reports</span>
-                </button>
-                <button class="nav-item" onclick="setActive(this, 'settings')">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
                 </button>
             </nav>
 
@@ -94,71 +82,75 @@
                     <p>Welcome back! Here's what's happening with your photography business.</p>
                 </div>
 
-                <!-- Stats Grid -->
-                <div class="stats-grid">
+<!-- Stats Grid -->
+<div class="stats-grid">
+ <div class="stat-card">
+    <div class="stat-header">
+    <div class="stat-icon purple">
+    <i class="fas fa-calendar"></i>
+</div>
+    <div class="stat-change">
+</div>
+</div>
+<div class="stat-info">
+    <h3>Total Bookings</h3> 
+                        </div>
+                    </div>
+
                     <div class="stat-card">
                         <div class="stat-header">
-                        <div class="stat-icon purple">
-                        <i class="fas fa-calendar"></i>
-                    </div>
-                    <div class="stat-change"></div>
-                    <div class="stat-info">
-                        <h3>Total Bookings</h3> 
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon blue">
-                            <i class="fas fa-camera"></i>
+                            <div class="stat-icon blue">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="stat-change">
+                            </div>
                         </div>
-                        <div class="stat-change"></div>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Active Photographers</h3>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <div class="stat-icon pink">
-                            <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Active Photographers</h3>
                         </div>
-                        <div class="stat-change"></div>
                     </div>
-                    <div class="stat-info">
-                        <h3>Total Clients</h3>
-                    </div>
-                </div>    
-            </main>
-            <!-- Table Section -->
-            <div class="table-section">
-            <div class="table-header">
-                <div class="table-title">
-                <h3>Recent Bookings</h3>
-                <p>Latest photography session bookings</p>
-                </div>
-                <button class="view-all-btn">
-                    <i class="fas fa-clock"></i> view All
-                </button>
-                </div>
 
-            <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Booking ID</th>
-                        <th>Client</th>
-                        <th>Photographer</th>
-                        <th>Service</th>
-                        <th>Date</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-            <tbody>
-            <tr>
-        <script src="../tubes.js"></script>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon pink">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-change">
+                            </div>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Clients</h3>
+                        </div>
+                    </div>
+                </div>
+<!-- Table Section -->
+ <div class="table-section">
+   <div class="table-header">
+    <div class="table-title">
+    <h3>Recent Bookings</h3>
+    <p>Latest photography session bookings</p>
     </div>
-</html>
+    <button class="view-all-btn">
+        <i class="fas fa-clock"></i> view All
+    </button>
+    </div>
+
+<div class="table-container">
+<table>
+    <thead>
+<tr>
+<th>Booking ID</th>
+<th>Client</th>
+<th>Photographer</th>
+<th>Service</th>
+<th>Date</th>
+<th>Amount</th>
+<th>Status</th>
+ 
+</tr>
+  </thead>
+    <tbody>
+     <tr>
+        <script src="tubes.js"></script>
+        </div>
+            </html>

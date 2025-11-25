@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Find Happiness</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body> 
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo-container">
+        <div class="logo-icon">
+        <img src="img/logo.png" alt="Logo" class="logo-icon">
+        <i class="fas fa-camera"></i>
+                    </div>
+                    <span class="logo-text">Find Hapiness</span>
+                </div>
+                <button class="toggle-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" onclick="setActive(this, 'dashboard')">
+                    <i class="fas fa-home"></i>
+               <a href="admin.html"><span>Dashboard</span></a>
+                </button>
+                <button class="nav-item" onclick="setActive(this, 'bookings')">
+                    <i class="fas fa-calendar"></i>
+                 <a href="admin_booking.html"><span>Booking</span></a>
+                </button>
+                <button class="nav-item" onclick="setActive(this, 'photographers')">
+                    <i class="fas fa-camera"></i>
+                <a href="admin_potography.html"><span>Photography</span></a>
+                </button>
+                <button class="nav-item" onclick="setActive(this, 'reports')">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+               <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search bookings, clients, photographers...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge"></span>
+                    </button>
+
+                    <div class="user-profile">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <h4>Admin User</h4>
+                            <p>admin@findhapiness.com</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+<!-- Content Area -->
+            <main class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Business Reports & Analytics</h2>
+                        <p>Track your business performance and insights</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <select class="date-range-select">
+                            <option>This Month</option>
+                            <option>Last 30 Days</option>
+                            <option>Last 3 Months</option>
+                            <option>Last 6 Months</option>
+                            <option>This Year</option>
+                            <option>Custom Range</option>
+                        </select>
+                        <button class="export-btn">
+                            <i class="fas fa-download"></i>
+                            Export PDF
+                        </button>
+                        <button class="export-btn">
+                            <i class="fas fa-file-excel"></i>
+                            Export Excel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Overview Cards Section -->
+                <div class="section-title">
+                    <h3><i class="fas fa-chart-line"></i> Overview</h3>
+                </div>
+
+                <div class="overview-grid">
+                    <!-- Financial Overview -->
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <h4>Financial Overview</h4>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon purple">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Total Revenue</p>
+                                    <h3 class="stat-value">-</h3>
+                                    <span class="stat-change positive">-</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon green">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Avg Booking Value</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon orange">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Pending Payments</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booking Overview -->
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <h4>Booking Overview</h4>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon blue">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Total Bookings</p>
+                                    <h3 class="stat-value">-</h3>
+                                    <span class="stat-change positive">-</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon green">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Completed</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon red">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Cancelled</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Metrics -->
+                    <div class="overview-card">
+                        <div class="card-header">
+                            <h4>Performance Metrics</h4>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon yellow">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Average Rating</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon purple">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">New Clients</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon blue">
+                                    <i class="fas fa-redo"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Repeat Clients</p>
+                                    <h3 class="stat-value">-</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="section-title">
+                    <h3><i class="fas fa-chart-bar"></i> Analytics</h3>
+                </div>
+
+                <div class="charts-grid">
+                    <!-- Revenue Chart -->
+                    <div class="chart-card large">
+                        <div class="card-header">
+                            <h4>Revenue Trend</h4>
+                            <select class="chart-filter">
+                                <option>Last 6 Months</option>
+                                <option>Last 12 Months</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Service Distribution -->
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h4>Service Type Distribution</h4>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="serviceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Top Photographers -->
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h4>Top Photographers</h4>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="photographerChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Tables Section -->
+                <div class="section-title">
+                    <h3><i class="fas fa-table"></i> Detailed Reports</h3>
+                </div>
+
+                <div class="table-tabs">
+                    <button class="tab-btn active" onclick="switchTab('revenue')">
+                        <i class="fas fa-dollar-sign"></i>
+                        Revenue Breakdown
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('photographers')">
+                        <i class="fas fa-camera"></i>
+                        Photographer Performance
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('services')">
+                        <i class="fas fa-briefcase"></i>
+                        Popular Services
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('locations')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Location Analytics
+                    </button>
+                </div>
+
+                <div class="table-section">
+                    <!-- Revenue Breakdown Table -->
+                    <div id="revenue-tab" class="tab-content active">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Total Revenue</th>
+                                        <th>Bookings</th>
+                                        <th>Avg Value</th>
+                                        <th>Growth</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="revenueTableBody">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">
+                                            <i class="fas fa-chart-line"></i>
+                                            <p>No data available</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Photographer Performance Table -->
+                    <div id="photographers-tab" class="tab-content">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Photographer</th>
+                                        <th>Bookings</th>
+                                        <th>Revenue</th>
+                                        <th>Rating</th>
+                                        <th>Completion Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="photographersTableBody">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">
+                                            <i class="fas fa-camera"></i>
+                                            <p>No data available</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Popular Services Table -->
+                    <div id="services-tab" class="tab-content">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Service Type</th>
+                                        <th>Bookings</th>
+                                        <th>Revenue</th>
+                                        <th>Avg Price</th>
+                                        <th>Market Share</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="servicesTableBody">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">
+                                            <i class="fas fa-briefcase"></i>
+                                            <p>No data available</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Location Analytics Table -->
+                    <div id="locations-tab" class="tab-content">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Location</th>
+                                        <th>Bookings</th>
+                                        <th>Revenue</th>
+                                        <th>Popular Service</th>
+                                        <th>Growth</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="locationsTableBody">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <p>No data available</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="tubes.js"></script>
+</body>
+</html>

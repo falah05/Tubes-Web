@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Find Happiness</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body> 
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo-container">
+        <div class="logo-icon">
+        <img src="img/logo.png" alt="Logo" class="logo-icon">
+        <i class="fas fa-camera"></i>
+                    </div>
+                    <span class="logo-text">Find Hapiness</span>
+                </div>
+                <button class="toggle-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" onclick="setActive(this, 'dashboard')">
+                    <i class="fas fa-home"></i>
+               <a href="admin.html"><span>Dashboard</span></a>
+                </button>
+                <button class="nav-item" onclick="setActive(this, 'bookings')">
+                    <i class="fas fa-calendar"></i>
+                 <a href="admin_booking.html"><span>Booking</span></a>
+                </button>
+                <button class="nav-item" onclick="setActive(this, 'photographers')">
+                    <i class="fas fa-camera"></i>
+                <a href="admin_potography.html"><span>Photography</span></a>
+                </button>
+                <button class="nav-item" onclick="setActive(this, 'reports')">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+               <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search bookings, clients, photographers...">
+                </div>
+
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge"></span>
+                    </button>
+
+                    <div class="user-profile">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <h4>Admin User</h4>
+                            <p>admin@findhapiness.com</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+<!-- Content Area -->
+            <main class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Photographers Management</h2>
+                        <p>Manage your photography team and their profiles</p>
+                    </div>
+                </div>
+
+                <!-- Mini Stats -->
+                <div class="mini-stats">
+                    <div class="mini-stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Total Photographers</h4>
+                        </div>
+                    </div>
+                    <div class="mini-stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Active This Month</h4>
+                        </div>
+                    </div>
+                    <div class="mini-stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Available Today</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" onclick="filterPhotographers('all')">All Photographers</button>
+                        <button class="filter-tab" onclick="filterPhotographers('available')">Available</button>
+                        <button class="filter-tab" onclick="filterPhotographers('on-assignment')">On Assignment</button>
+                        <button class="filter-tab" onclick="filterPhotographers('off-duty')">Off Duty</button>
+                        <button class="filter-tab" onclick="filterPhotographers('inactive')">Inactive</button>
+                    </div>
+                <!-- Table Section -->
+                <div class="table-section">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID Photographer</th>
+                                    <th>Nama</th>
+                                    <th>Kategori</th>
+                                    <th>Status</th>
+                                </tr>
+                                            <tbody id="bookingsTable">
+                <tr>
+                    <td class="booking-id"> </td>
+                    <td>
+                        <div class="client-info">
+                            <span class="client-name"></span>
+                            <span class="client-contact"></span>
+                        </div>
+                    </td>
+   <td>
+                        <div class="photographer-badge">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </td>
+                    <td class="service-type"></td>
+                    <td><br><small style="color: #6b7280;"></small></td>
+                    <td></td>
+                    <td class="amount"></td>
+                    <td><span class="payment-status paid"></span></td>
+                </tr>
+           
+            </tbody>
+        </table>
+    </div>
+<!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        Showing 1 to 6 of 32 photographers
+                    </div>
+                    <div class="pagination-buttons">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">4</button>
+                        <button class="pagination-btn">5</button>
+                        <button class="pagination-btn">6</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="tubes.js"></script>
+</body>
+</html>
