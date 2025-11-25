@@ -64,7 +64,9 @@ document.getElementById('date').min = new Date().toISOString().split('T')[0];
     categoryTitle.innerHTML = `<h2 style="color: #6b46c1; margin: 0;">Kategori: ${category.charAt(0).toUpperCase() + category.slice(1)} Photography</h2>`;
     portfolioSection.insertBefore(categoryTitle, portfolioSection.firstChild);
   }
-// Toggle Sidebar
+
+//admin
+  // Toggle Sidebar
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('collapsed');
@@ -149,4 +151,102 @@ document.addEventListener('DOMContentLoaded', function() {
     // You can add initialization logic here
     // Example: Load dashboard data
     // loadDashboardData();
+});
+
+// Filter by Status
+function filterStatus(status) {
+    // Remove active class from all tabs
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // Add active class to clicked tab
+    Event.target.classList.add('active');
+    
+    console.log('Filtering by status:', status);
+    
+    // Get all table rows
+    const tableRows = document.querySelectorAll('#bookingsTable tr');
+    
+    tableRows.forEach(row => {
+        if (status === 'all') {
+            row.style.display = '';
+        } else {
+            const statusBadge = row.querySelector('.status-badge');
+            if (statusBadge) {
+                const rowStatus = statusBadge.className.toLowerCase();
+                if (rowStatus.includes(status)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        }
+    });
+}
+
+// Add New Booking
+function addNewBooking() {
+    alert('Form tambah booking baru akan dibuka');
+    // Redirect to add booking form or open modal
+    // window.location.href = 'admin_booking_add.html';
+}
+
+// View Booking Details
+function viewDetails(bookingId) {
+    console.log('View details for:', bookingId);
+    alert(`Melihat detail booking ${bookingId}`);
+    // window.location.href = `admin_booking_detail.html?id=${bookingId}`;
+}
+
+// Edit Booking
+function editBooking(bookingId) {
+    console.log('Edit booking:', bookingId);
+    alert(`Edit booking ${bookingId}`);
+    // window.location.href = `admin_booking_edit.html?id=${bookingId}`;
+}
+
+// Delete Booking
+function deleteBooking(bookingId) {
+    if (confirm(`Apakah Anda yakin ingin menghapus booking ${bookingId}?`)) {
+        console.log('Delete booking:', bookingId);
+        alert(`Booking ${bookingId} berhasil dihapus`);
+        
+        // Remove row from table
+        const allCells = document.querySelectorAll('td.booking-id');
+        allCells.forEach(cell => {
+            if (cell.textContent === bookingId) {
+                cell.closest('tr').remove();
+            }
+        });
+    }
+}
+
+// Pagination
+document.addEventListener('DOMContentLoaded', function() {
+    const paginationBtns = document.querySelectorAll('.pagination-btn');
+    
+    paginationBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (this.disabled) return;
+            
+            // Remove active class from all number buttons
+            paginationBtns.forEach(b => {
+                if (!b.querySelector('i')) {
+                    b.classList.remove('active');
+                }
+            });
+            
+            // Add active class to clicked button (if it's a number)
+            if (!this.querySelector('i')) {
+                this.classList.add('active');
+                const pageNumber = this.textContent.trim();
+                console.log('Going to page:', pageNumber);
+                // loadPage(pageNumber);
+            } else {
+                // Handle prev/next buttons
+                const direction = this.querySelector('.fa-chevron-left') ? 'prev' : 'next';
+                console.log('Navigate:', direction);
+            }
+        });
+    });
 });
