@@ -114,14 +114,15 @@
                 </div>
 
                 <!-- Filter Section -->
+                <!-- Filter Section -->
                 <div class="filter-section">
                     <div class="filter-tabs">
-                        <button class="filter-tab active" onclick="filterPhotographers('all')">All Photographers</button>
-                        <button class="filter-tab" onclick="filterPhotographers('available')">Available</button>
-                        <button class="filter-tab" onclick="filterPhotographers('on-assignment')">On Assignment</button>
-                        <button class="filter-tab" onclick="filterPhotographers('off-duty')">Off Duty</button>
-                        <button class="filter-tab" onclick="filterPhotographers('inactive')">Inactive</button>
-                    </div>
+<button class="filter-tab active" onclick="filterStatus(event, 'all')">All Photographers</button>
+<button class="filter-tab" onclick="filterStatus(event, 'available')">Available</button>
+<button class="filter-tab" onclick="filterStatus(event, 'on-assignment')">On Assignment</button>
+<button class="filter-tab" onclick="filterStatus(event, 'off-duty')">Off Duty</button>
+<button class="filter-tab" onclick="filterStatus(event, 'inactive')">Inactive</button>
+
                 <!-- Table Section -->
                 <div class="table-section">
                     <div class="table-container">
@@ -181,9 +182,10 @@
         </div>
     </div>
 
-    <script src="tubes.js"></script>
+    <script src="adminphotography.js"></script>
 </body>
 </html>
+
 
 
 
